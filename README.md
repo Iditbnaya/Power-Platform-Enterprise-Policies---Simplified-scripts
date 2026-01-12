@@ -16,17 +16,17 @@ This repository provides a lightweight, easy-to-use alternative to the full ente
 Before relying on these scripts, ensure you have the following:
 
 1.  **PowerShell 7+** (Recommended) or Windows PowerShell 5.1.
-2.  **Azure PowerShell Module** (Az):
-    `powershell
+2.  **Azure PowerShell Module** (`Az`):
+    ```powershell
     Install-Module -Name Az -AllowClobber -Scope CurrentUser
-    `
-3.  **Permissions**: You must have Owner or Contributor rights on the Azure Subscription and Resource Group where policies will be created.
+    ```
+3.  **Permissions**: You must have `Owner` or `Contributor` rights on the Azure Subscription and Resource Group where policies will be created.
 
-> 💡 **Tip**: Run .\Check-Prerequisites.ps1 to verify your environment setup automatically.
+> 💡 **Tip**: Run `.\Check-Prerequisites.ps1` to verify your environment setup automatically.
 
 ## 📂 Repository Structure
 
-`	ext
+```text
 .
 ├── Configs/                    # Configuration templates
 │   ├── Encryption-Config.psd1  # Template for Encryption policies
@@ -38,7 +38,7 @@ Before relying on these scripts, ensure you have the following:
 ├── Create-VNetPolicy.ps1       # Script to create VNet policies
 ├── Deploy-PolicyFromConfig.ps1 # Master script to deploy using config files
 └── README.md                   # Documentation
-`
+```
 
 ## 🛠️ Getting Started
 
@@ -47,20 +47,20 @@ Before relying on these scripts, ensure you have the following:
 This method ensures you have a record of your deployment settings and makes reruns easier.
 
 1.  **Clone the repository**:
-    `ash
+    ```bash
     git clone https://github.com/yourusername/PowerPlatformEnterprisePolicies-SimpleScripts.git
     cd PowerPlatformEnterprisePolicies-SimpleScripts
-    `
+    ```
 
 2.  **Prepare your configuration**:
-    *   Navigate to the Configs folder.
-    *   Copy VNet-Config.psd1 or Encryption-Config.psd1 to a new file (e.g., MyProductionVNet.psd1).
+    *   Navigate to the `Configs` folder.
+    *   Copy `VNet-Config.psd1` or `Encryption-Config.psd1` to a new file (e.g., `MyProductionVNet.psd1`).
     *   Edit the file with your specific Azure Subscription ID, Resource Group, and VNet details.
 
 3.  **Run the deployment**:
-    `powershell
+    ```powershell
     .\Deploy-PolicyFromConfig.ps1 -ConfigFilePath ".\Configs\MyProductionVNet.psd1"
-    `
+    ```
 
 ### Method 2: Command Line (Ad-hoc)
 
@@ -70,30 +70,30 @@ You can also run the scripts directly with parameters for quick, one-off tasks.
 
 Suitable for environments ensuring Business Continuity (BCDR).
 
-`powershell
-.\Create-VNetPolicy.ps1 
-    -SubscriptionId "00000000-0000-0000-0000-000000000000" 
-    -ResourceGroupName "MyResourceGroup" 
-    -Location "northeurope" 
-    -PolicyName "ProdVNetPolicy" 
-    -PrimaryVnetId "/subscriptions/.../virtualNetworks/VnetNorth" 
-    -PrimarySubnetName "subnet-north" 
-    -SecondaryVnetId "/subscriptions/.../virtualNetworks/VnetWest" 
+```powershell
+.\Create-VNetPolicy.ps1 `
+    -SubscriptionId "00000000-0000-0000-0000-000000000000" `
+    -ResourceGroupName "MyResourceGroup" `
+    -Location "northeurope" `
+    -PolicyName "ProdVNetPolicy" `
+    -PrimaryVnetId "/subscriptions/.../virtualNetworks/VnetNorth" `
+    -PrimarySubnetName "subnet-north" `
+    -SecondaryVnetId "/subscriptions/.../virtualNetworks/VnetWest" `
     -SecondarySubnetName "subnet-west"
-`
+```
 
 #### Creating an Encryption (CMK) Policy
 
-`powershell
-.\Create-EncryptionPolicy.ps1 
-    -SubscriptionId "00000000-0000-0000-0000-000000000000" 
-    -ResourceGroupName "MyResourceGroup" 
-    -Location "eastus" 
-    -PolicyName "ProdEncryptionPolicy" 
-    -KeyVaultId "/subscriptions/.../vaults/MyKeyVault" 
-    -KeyName "MyKey" 
+```powershell
+.\Create-EncryptionPolicy.ps1 `
+    -SubscriptionId "00000000-0000-0000-0000-000000000000" `
+    -ResourceGroupName "MyResourceGroup" `
+    -Location "eastus" `
+    -PolicyName "ProdEncryptionPolicy" `
+    -KeyVaultId "/subscriptions/.../vaults/MyKeyVault" `
+    -KeyName "MyKey" `
     -KeyVersion "optional-version-guid"
-`
+```
 
 ## 🤝 Contributing
 
