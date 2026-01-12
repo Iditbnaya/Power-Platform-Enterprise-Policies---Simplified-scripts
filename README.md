@@ -24,7 +24,7 @@ Before relying on these scripts, ensure you have the following:
 > 💡 **Tip**: Run `.\Check-Prerequisites.ps1` to verify your environment setup automatically.
 ## 📂 Repository Structure
 
-`	ext
+`plaintext
 .
 ├── Configs/                    # Configuration templates
 │   ├── Encryption-Config.psd1  # Template for Encryption policies
