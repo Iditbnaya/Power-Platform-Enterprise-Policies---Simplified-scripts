@@ -2,7 +2,7 @@
 
 Welcome to the simplified PowerShell toolkit for managing **Power Platform Enterprise Policies**. 
 
-git init **Network Injection (VNet)** or **Customer Managed Key (CMK/Encryption)** policies without the overhead of complex, monolithic frameworks.
+This repository provides a lightweight, easy-to-use alternative to the full enterprise scripts. It is designed for administrators who need to quickly deploy **Network Injection (VNet)** or **Customer Managed Key (CMK/Encryption)** policies without the overhead of complex, monolithic frameworks.
 
 ## 🚀 Features
 
@@ -21,10 +21,12 @@ Before relying on these scripts, ensure you have the following:
     Install-Module -Name Az -AllowClobber -Scope CurrentUser
     `
 3.  **Permissions**: You must have Owner or Contributor rights on the Azure Subscription and Resource Group where policies will be created.
-> 💡 **Tip**: Run `.\Check-Prerequisites.ps1` to verify your environment setup automatically.
+
+> 💡 **Tip**: Run .\Check-Prerequisites.ps1 to verify your environment setup automatically.
+
 ## 📂 Repository Structure
 
-`plaintext
+`	ext
 .
 ├── Configs/                    # Configuration templates
 │   ├── Encryption-Config.psd1  # Template for Encryption policies
@@ -45,7 +47,7 @@ Before relying on these scripts, ensure you have the following:
 This method ensures you have a record of your deployment settings and makes reruns easier.
 
 1.  **Clone the repository**:
-    `\bash
+    `ash
     git clone https://github.com/yourusername/PowerPlatformEnterprisePolicies-SimpleScripts.git
     cd PowerPlatformEnterprisePolicies-SimpleScripts
     `
